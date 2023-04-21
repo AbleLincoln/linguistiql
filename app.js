@@ -6,6 +6,10 @@ const app = express()
 
 app.use(cors())
 
+app.get('/', (req, res) => {
+  res.send('Why hello there 🌻')
+})
+
 app.get('/stats', getStats)
 
 const port = 3000
