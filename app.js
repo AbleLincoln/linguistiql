@@ -6,7 +6,7 @@ const app = express()
 
 app.use(cors())
 
-app.get('/', getStats)
+app.get('/stats', getStats)
 
 const port = 3000
 app.listen(port, () => {
