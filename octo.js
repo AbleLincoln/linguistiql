@@ -1,9 +1,6 @@
-import { Octokit, App } from 'octokit'
-import * as fs from 'fs'
+import { App } from 'octokit'
 
-const privateKey = fs.readFileSync('./language-stats.private-key.pem', {
-  encoding: 'utf8',
-})
+const privateKey = process.env.GITHUB_PRIVATE_KEY.replace(/\\n/g, '\n')
 
 const app = new App({
   appId: 321462,
@@ -14,7 +11,7 @@ export async function getStats(req, res) {
   const { user, repo } = req.query
 
   if (!user || !repo) {
-    res.status(400).send('Missing user param')
+    return res.status(400).send('Missing params')
   }
 
   const {
