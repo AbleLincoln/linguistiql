@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for wild-snow-4725 on 2023-04-29T21:19:00-07:00
+# fly.toml app configuration file generated for linguistiql on 2023-04-30T00:24:30-07:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -12,5 +12,5 @@ primary_region = "lax"
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = true
+  auto_stop_machines = false
   auto_start_machines = true
