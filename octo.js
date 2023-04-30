@@ -8,11 +8,16 @@ const app = new App({
 })
 
 export async function getStats(req, res) {
+  console.log(`/stats pinged!`)
+
   const { user, repo } = req.query
 
   if (!user || !repo) {
-    return res.status(400).send('Missing params')
+    console.log('400')
+    return res.status(400).send('Missing user or repo params')
   }
+
+  console.log(`request for ${user} @ ${repo}`)
 
   const {
     data: { id: installationId },
@@ -55,6 +60,7 @@ export async function getStats(req, res) {
     })
   )
 
+  console.log('200')
   res.send({
     languages,
     url,
